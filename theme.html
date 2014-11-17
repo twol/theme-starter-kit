@@ -182,7 +182,7 @@
             {% endif %}
 
             <!-- 次のページ／前のページ -->
-            {% if not is_tag %}
+            {% if not is_tag or not is_post %}
             {% if pagination.next or pagination.prev %}
             <div class="pagination">
               {% if pagination.prev %}<a href="{{ pagination.prev }}" class="prev">&laquo; Previous</a>{% endif %}
