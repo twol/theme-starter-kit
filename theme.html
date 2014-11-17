@@ -99,6 +99,16 @@
                 </li>
                 {% endif %}
             </ul>
+            <!-- 次のページ／前のページ -->
+            {% if not is_tag %}
+            {% if pagination.next or pagination.prev %}
+            <div class="pagination">
+              {% if pagination.prev %}<a href="{{ pagination.prev }}" class="prev">&laquo; Previous</a>{% endif %}
+              {% if pagination.next %}<a href="{{ pagination.next }}" class="next">Next &raquo;</a>{% endif %}
+            </div>
+            {% endif %}
+            {% endif %}
+            <!-- /次のページ／前のページ -->
             {% elif is_post %}
             <article itemscope itemtype="http://schema.org/Article" class="post">
                 <time class="time" datetime="{{ post.created_at }}"><span>Published by {{ site.author }}</span> <span>{{ post.created_at|format_date }}</span></time>
@@ -179,16 +189,6 @@
                     </div>
                 </section>
             </article>
-            <!-- 次のページ／前のページ -->
-            {% if not is_tag %}
-            {% if pagination.next or pagination.prev %}
-            <div class="pagination">
-              {% if pagination.prev %}<a href="{{ pagination.prev }}" class="prev">&laquo; Previous</a>{% endif %}
-              {% if pagination.next %}<a href="{{ pagination.next }}" class="next">Next &raquo;</a>{% endif %}
-            </div>
-            {% endif %}
-            {% endif %}
-            <!-- /次のページ／前のページ -->
             {% endif %}
 
         </div>
