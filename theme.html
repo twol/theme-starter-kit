@@ -102,8 +102,8 @@
             <!-- 次のページ／前のページ -->
             {% if not is_tag %}
             {% if pagination.next or pagination.prev %}
-            <div class="pagination">
-              {% if pagination.prev %}<a href="{{ pagination.prev }}" class="prev">&laquo; Previous</a>{% endif %}
+            <div class="pagination" style="text-align: center;">
+              {% if pagination.prev %}<a href="{{ pagination.prev }}" class="prev">&laquo; Previous</a> | {% endif %}
               {% if pagination.next %}<a href="{{ pagination.next }}" class="next">Next &raquo;</a>{% endif %}
             </div>
             {% endif %}
