@@ -89,12 +89,6 @@
                             </div>
                             <div class="post-content" style="word-wrap: break-word;">
                                 <p>{{ post.content }}</p>
-                                <!--
-                                {% if post.content|striptags|wordcount > 0 %}
-                                <p>{{ post.content|striptags|truncate(500) }}<br />
-                                <a href="{{ post.permalink }}">Read More</a></p>
-                                {% endif %}
-                                -->
                                 {% if post.tags %}
                                 <div class="tags">
                                     <h4>Tags</h4>
@@ -125,7 +119,8 @@
             <!-- /次のページ／前のページ -->
             {% elif is_post %}
             <article itemscope itemtype="http://schema.org/Article" class="post">
-                <time class="time" datetime="{{ post.created_at }}"><span>Published by {{ site.author }}</span> <span>{{ post.created_at|format_date }}</span></time>
+                <!-- <time class="time" datetime="{{ post.created_at }}"><span>Published by {{ site.author }}</span> <span>{{ post.created_at|format_date }}</span></time> -->
+                <time class="time" datetime="{{ post.created_at }}"><span>{{ post.created_at }}</span></time>
                 <section class="content">
                     <header>
                         <h2>{{ post.title }}</h2>
@@ -159,7 +154,8 @@
             </article>
             {% elif is_link %}
             <article itemscope itemtype="http://schema.org/Article" class="post">
-                <time class="time" datetime="{{ link.created_at }}"><span>Published by {{ site.author }}</span> <span>{{ link.created_at|format_date }}</span></time>
+                <!-- <time class="time" datetime="{{ link.created_at }}"><span>Published by {{ site.author }}</span> <span>{{ link.created_at|format_date }}</span></time> -->
+                <time class="time" datetime="{{ link.created_at }}"><span>{{ link.created_at }}</span></time>
                 <section class="content">
                     <header>
                         <h2>{{ link.title }}</h2>
