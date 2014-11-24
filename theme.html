@@ -81,7 +81,8 @@
                 <!-- 個々の投稿 -->
                 <li>
                     <article itemscope itemtype="http://schema.org/Article">
-                        <time class="time" datetime="{{ post.created_at }}"><span>Published by {{ site.author }}</span> <span>{{ post.created_at|format_date }}</span></time>
+                        <!-- <time class="time" datetime="{{ post.created_at }}"><span>Published by {{ site.author }}</span> <span>{{ post.created_at|format_date }}</span></time> -->
+                        <time class="time" datetime="{{ post.created_at }}"><span>{{ post.created_at }}</span></time>
                         <div class="bubble"></div>
                         <div class="label">
                             <div class="post-header">
@@ -120,7 +121,7 @@
             {% elif is_post %}
             <article itemscope itemtype="http://schema.org/Article" class="post">
                 <!-- <time class="time" datetime="{{ post.created_at }}"><span>Published by {{ site.author }}</span> <span>{{ post.created_at|format_date }}</span></time> -->
-                <time class="time" datetime="{{ post.created_at }}"><span>{{ post.created_at }}</span></time>
+                <time class="time" datetime="{{ post.created_at }}"><span>{{ post.created_at|format_date }}</span></time>
                 <section class="content">
                     <header>
                         <h2>{{ post.title }}</h2>
