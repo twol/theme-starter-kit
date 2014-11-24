@@ -37,6 +37,7 @@
 
     <link href="{{ static('themes/timeline/css/timeline.css') }}" rel="stylesheet" />
     <script src="{{ static('themes/timeline/js/modernizr.custom.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -225,6 +226,18 @@
     </script>
     {% endif %}
 
+    <script>
+    $(document).ready(function() {
+        $(".time>span").map(function(i,elem) {
+            var date = new Date(Date.parse(elem.innerText) + 9*3600000);
+            elem.innerText = "" +
+                             date.getFullYear() + "-" +
+                             date.getMonth() + "-" +
+                             date.getDate() + " " +
+                             date.toLocaleTimeString();
+        });
+    });
+    </script>
     <!-- /ログインしている場合 -->
     {% endif %}
 </body>
